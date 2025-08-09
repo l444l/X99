@@ -1,9 +1,10 @@
-import makeWASocket, {
+import {
+  makeWASocket,
   delay,
   type CacheStore,
   type BaileysEventMap,
 } from "baileys";
-import { pino } from "pino";
+import pino from "pino";
 import Cache from "@cacheable/node-cache";
 import config from "../config.ts";
 import { useSqliteAuthState } from "./utils/auth.ts";

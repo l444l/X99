@@ -1,4 +1,4 @@
-import { proto } from "baileys";
+import { WAProto } from "baileys";
 import type { CommandModule } from "../types/Command.ts";
 
 export default [
@@ -48,7 +48,7 @@ export default [
       if (!msg.quoted) return await msg.reply("Reply a messsage");
       return await msg.client.sendMessage(msg.from, {
         pin: msg.quoted.key,
-        type: proto.PinInChat.Type.PIN_FOR_ALL,
+        type: WAProto.PinInChat.Type.PIN_FOR_ALL,
         time: 604800,
       });
     },
@@ -63,7 +63,7 @@ export default [
       if (!msg.quoted) return await msg.reply("Reply a messsage");
       return await msg.client.sendMessage(msg.from, {
         pin: msg.quoted.key,
-        type: proto.PinInChat.Type.UNPIN_FOR_ALL,
+        type: WAProto.PinInChat.Type.UNPIN_FOR_ALL,
         time: 604800,
       });
     },

@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 import database from "../database.ts";
-import { BufferJSON, initAuthCreds, proto } from "baileys";
+import { BufferJSON, initAuthCreds, WAProto } from "baileys";
 
 const Auth = database.define(
 	"auth",
@@ -41,7 +41,7 @@ export const useSqliteAuthState = async () => {
 						ids.map(async id => {
 							let value = await read(`${type}-${id}`);
 							if (type === "app-state-sync-key" && value)
-								value = proto.Message.AppStateSyncKeyData.fromObject(value);
+								value = WAProto.Message.AppStateSyncKeyData.fromObject(value);
 							result[id] = value;
 						})
 					);

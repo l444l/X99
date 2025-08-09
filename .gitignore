@@ -3,4 +3,5 @@
 *.db
 database.db-shm
 database.db-wal
-.env
+*.env
+*.lock

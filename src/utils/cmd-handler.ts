@@ -11,7 +11,7 @@ export function registerCommand(cmd: CommandModule) {
   const buildRegex = (p: string) =>
     new RegExp(`^\\s*(${p})(?:\\s+([\\s\\S]+))?$`, "i");
 
-  if (cmd.pattern) {
+  if (cmd && cmd.pattern) {
     const keys = [cmd.pattern, ...(cmd.aliases || [])];
     for (const key of keys) {
       if (!commandMap.has(key)) {
@@ -21,7 +21,7 @@ export function registerCommand(cmd: CommandModule) {
         });
       }
     }
-  } else if (cmd.on) {
+  } else if (cmd && cmd.on) {
     // special case: no pattern but should still be registered
     commandMap.set(`__event_${Math.random()}`, cmd);
   }
